@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+<!-- code to inject the dependency by static factory method -->
+<bean id="a" class="Type1.A" factory-method="getA"></bean> 
+
+<!-- code to inject the dependency by static factory method that returns the instance of another class. -->
+<bean id="p" class="Type2.PrintableFactory" factory-method="getPrintable"></bean>  
+
+<!--code to inject the dependency by non-static factory method that returns the instance of another class. -->
+ <bean id="pfactory" class="Type3.PrintableFactory"/>
+ <bean id="p" factory-bean="pfactory" factory-method="getPrintable"/>
+ 
+</beans>
+  
